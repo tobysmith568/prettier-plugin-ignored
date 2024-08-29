@@ -69,7 +69,7 @@ jobs:
       - name: Download Build
         uses: actions/download-artifact@v4
         with:
-          name: build
+          name: Build
           path: ./builds
 
       - name: Deploy
@@ -92,7 +92,7 @@ jobs:
       - name: Download Build
         uses: actions/download-artifact@v4
         with:
-          name: build
+          name: Build
           path: ./builds
 
       - name: Create Release
