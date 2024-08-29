@@ -1,0 +1,106 @@
+name: Continuous Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to deploy
+        required: true
+        type: string
+
+defaults:
+  run:
+    shell: pwsh
+
+concurrency:
+  group: Continuous Deployment
+  cancel-in-progress: false
+
+jobs:
+  calculate:
+    name: Calculate Variables
+
+    runs-on: ubuntu-latest
+
+    outputs:
+      npm_tag: ${{ steps.npm_tag.outputs.latest-tag }}
+
+    steps:
+      - name: Checkout
+        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+
+      - name: Set Version
+        run: npm version ${{ inputs.version }} --git-tag-version false
+
+      - name: Calculate npm tag
+        uses: tobysmith568/npm-publish-latest-tag@v1
+        id: npm_tag
+        with:
+          package-json: ./package.json
+
+  integration:
+    name: Run Continuous Integration
+
+    needs:
+      - calculate
+
+    uses: ./.github/workflows/integration.yml
+    secrets: inherit
+    with:
+      version: ${{ github.event.inputs.version }}
+
+  deploy:
+    name: Deploy
+
+    runs-on: ubuntu-latest
+
+    needs:
+      - calculate
+      - integration
+
+    permissions:
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+
+      - name: Download Build
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: ./builds
+
+      - name: Deploy
+        run: npm publish ./builds/prettier-plugin-ignored-${{ inputs.version }}.tgz --access public --tag ${{ needs.calculate.outputs.npm_tag }} --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  release:
+    name: Create GitHub Release
+
+    needs:
+      - deploy
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download Build
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: ./builds
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ inputs.version }}
+          generate_release_notes: true
+          files: builds/**.tgz
+          body: |
+            # Release v${{ inputs.version }}
+
+            Download from [npm](https://www.npmjs.com/package/prettier-plugin-ignore/v/${{ inputs.version }}): `npm install prettier-plugin-ignore@${{ inputs.version }} --save-dev`

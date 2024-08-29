@@ -1,0 +1,77 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - renovate/*
+  pull_request:
+    branches:
+      - main
+      - "!renovate/*"
+  workflow_call:
+    inputs:
+      version:
+        description: Version to build
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to build
+        required: true
+        type: string
+
+defaults:
+  run:
+    shell: pwsh
+
+jobs:
+  lint:
+    name: Lint
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+
+      - name: Run Prettier
+        run: pnpm exec prettier --check .
+
+  build:
+    name: Build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+
+      - name: Set Version
+        run: npm version ${{ inputs.version }} --git-tag-version false
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Pack
+        run: pnpm pack --pack-destination ./builds
+
+      - name: Upload Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: Build
+          path: ./builds
+          retention-days: 1
+          if-no-files-found: error
+
+  test:
+    name: Unit Test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+
+      - name: Unit Test
+        run: pnpm exec vitest run

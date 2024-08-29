@@ -1,0 +1,63 @@
+{
+  "name": "prettier-plugin-ignored",
+  "version": "0.0.0",
+  "description": "A Prettier plugin that adds an 'ignored' language, allowing you to ignore files without listing them in a .prettierignore file.",
+  "packageManager": "pnpm@9.9.0+sha256.7a4261e50d9a44d9240baf6c9d6e10089dcf0a79d0007f2a26985a6927324177",
+  "prettier": "@tobysmith568/prettier-config",
+  "type": "module",
+  "keywords": [
+    "prettier",
+    "prettier-plugin",
+    "configuration",
+    "format",
+    "autoformat",
+    "autoformatter",
+    "ignore",
+    "prettierignore"
+  ],
+  "author": {
+    "name": "Toby Smith",
+    "email": "contact@tobythe.dev",
+    "url": "https://tobysmith.uk"
+  },
+  "homepage": "https://github.com/tobysmith568/prettier-plugin-ignored",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobysmith568/prettier-plugin-ignored.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tobysmith568/prettier-plugin-ignored/issues"
+  },
+  "license": "ISC",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "prettier": "3.0.0"
+  },
+  "devDependencies": {
+    "@license-cop/permissive": "^1.4.2",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@tobysmith568/prettier-config": "^2.1.1",
+    "license-cop": "^1.4.2",
+    "rollup": "^4.21.1",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}

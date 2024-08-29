@@ -1,0 +1,15 @@
+id: 101
+name: Alice Johnson
+age: 29
+
+
+
+email: alice.johnson@example.com
+isActive: true
+address:
+  street: 321 Birch St
+city: Denver
+      state: CO
+  zip: 80203
+about:             >
+  Alice is a made up person
