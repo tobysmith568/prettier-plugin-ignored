@@ -1,0 +1,17 @@
+{
+  "id": 101,
+          "name": "Alice Example",
+  "age": 29,
+                  "email": "alice.example@example.com",
+  "address": {
+    "street": "321 Birch St","city": "Denver",
+    "state": "CO",
+
+
+
+"zip": "80203"
+  },
+  "isActive": true
+
+
+}

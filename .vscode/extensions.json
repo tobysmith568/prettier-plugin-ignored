@@ -1,0 +1,4 @@
+{
+  "recommendations": ["esbenp.prettier-vscode"],
+  "unwantedRecommendations": ["firsttris.vscode-jest-runner"]
+}
