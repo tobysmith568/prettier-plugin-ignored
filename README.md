@@ -26,17 +26,17 @@ npm install --save-dev prettier-plugin-ignored
 
 Add the plugin to your Prettier config and override specific files to use the 'ignored' parser.
 
-For example, here I'm using it to always ignore `pnpm-lock.yaml` files and all Azure Pipelines.
+For example, here I'm using it to always ignore `pnpm-lock.yaml` files and json files in `public` directories:
 
-```json
+```jsonc
 {
   "plugins": ["prettier-plugin-ignored"],
 
-  // Other stuff
+  // Other config options...
 
   "overrides": [
     {
-      "files": ["pnpm-lock.yaml", ".azure-pipelines/*.yml"],
+      "files": ["pnpm-lock.yaml", "public/**.json"],
       "options": {
         "parser": "ignored"
       }
