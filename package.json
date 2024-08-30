@@ -46,7 +46,10 @@
     "test": "vitest"
   },
   "dependencies": {
-    "prettier": "3.0.0"
+    "prettier": "^3.0.0"
+  },
+  "peerDependencies": {
+    "prettier": "3.x"
   },
   "devDependencies": {
     "@license-cop/permissive": "^1.4.2",
