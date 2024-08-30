@@ -104,4 +104,7 @@ jobs:
           body: |
             # Release v${{ inputs.version }}
 
-            Download from [npm](https://www.npmjs.com/package/prettier-plugin-ignore/v/${{ inputs.version }}): `npm install prettier-plugin-ignore@${{ inputs.version }} --save-dev`
+            Download from [npm](https://www.npmjs.com/package/prettier-plugin-ignored/v/${{ inputs.version }}):
+            ```pwsh
+            npm install prettier-plugin-ignored@${{ inputs.version }} --save-dev
+            ```
