@@ -52,11 +52,11 @@
     "prettier": "3.x"
   },
   "devDependencies": {
-    "@license-cop/permissive": "^1.4.2",
+    "@license-cop/permissive": "^1.6.2",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@tobysmith568/prettier-config": "^2.1.1",
-    "license-cop": "^1.4.2",
+    "license-cop": "^1.6.2",
     "rollup": "^4.21.1",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-typescript2": "^0.36.0",
