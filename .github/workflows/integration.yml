@@ -76,3 +76,28 @@ jobs:
 
       - name: Unit Test
         run: pnpm exec vitest run
+
+  licenses:
+    name: Check Licenses
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
+
+      - name: Check Licenses
+        run: pnpm exec license-cop
+
+  codeql:
+    name: CodeQL
+
+    uses: ./.github/workflows/codeql.yml
+
+    secrets: inherit
+
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
