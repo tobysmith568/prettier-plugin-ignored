@@ -54,7 +54,7 @@
   "devDependencies": {
     "@license-cop/permissive": "^1.6.2",
     "@rollup/plugin-commonjs": "^28.0.0",
-    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-node-resolve": "^16.0.0",
     "@tobysmith568/prettier-config": "^2.1.1",
     "license-cop": "^1.6.2",
     "rollup": "^4.21.1",
