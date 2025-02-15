@@ -37,6 +37,10 @@ jobs:
       - name: Checkout
         uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
 
+        # Needed for Prettier
+      - name: Build
+        run: pnpm run build
+
       - name: Run Prettier
         run: pnpm exec prettier --check .
 
