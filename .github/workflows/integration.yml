@@ -1,4 +1,5 @@
 name: Continuous Integration
+run-name: Continuous Integration for ${{ (inputs.version && format('v{0}', inputs.version)) || (github.event.pull_request.number && format('PR {0}', github.event.pull_request.number)) || github.ref_name }}
 
 on:
   push:
@@ -38,6 +39,9 @@ jobs:
 
       - name: Run Prettier
         run: pnpm exec prettier --check .
+
+      - name: Run ESLint
+        run: pnpm exec eslint . --max-warnings 0
 
   build:
     name: Build
