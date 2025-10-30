@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "@license-cop/permissive": "^1.8.0",
-    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@tobysmith568/eslint-config": "^2.3.0",
     "@tobysmith568/prettier-config": "^2.2.1",
