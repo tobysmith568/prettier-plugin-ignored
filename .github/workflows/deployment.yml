@@ -68,7 +68,7 @@ jobs:
         uses: tobysmith568/actions/.github/actions/checkout-pnpm-project@main
 
       - name: Download Build
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: Build
           path: ./builds
@@ -91,7 +91,7 @@ jobs:
 
     steps:
       - name: Download Build
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: Build
           path: ./builds
