@@ -46,22 +46,22 @@
     "test": "vitest"
   },
   "dependencies": {
-    "prettier": "^3.0.0"
+    "prettier": "^3.8.1"
   },
   "peerDependencies": {
     "prettier": "3.x"
   },
   "devDependencies": {
-    "@license-cop/permissive": "^1.8.0",
+    "@license-cop/permissive": "^1.9.0",
     "@rollup/plugin-commonjs": "^29.0.0",
-    "@rollup/plugin-node-resolve": "^16.0.0",
-    "@tobysmith568/eslint-config": "^2.3.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@tobysmith568/eslint-config": "^2.7.1",
     "@tobysmith568/prettier-config": "^2.2.1",
-    "license-cop": "^1.8.0",
-    "rollup": "^4.34.7",
-    "rollup-plugin-delete": "^3.0.0",
+    "license-cop": "^1.9.0",
+    "rollup": "^4.59.0",
+    "rollup-plugin-delete": "^3.0.2",
     "rollup-plugin-typescript2": "^0.36.0",
-    "typescript": "^5.7.3",
-    "vitest": "^4.0.0"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   }
 }
