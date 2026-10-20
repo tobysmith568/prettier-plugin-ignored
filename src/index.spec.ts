@@ -9,7 +9,7 @@ const execAsync = util.promisify(exec);
 
 describe("prettier-plugin-ignored", async () => {
   beforeAll(async () => {
-    await execAsync("pnpm build");
+    await execAsync("bun run build");
   });
 
   const testCaseDir = path.resolve(import.meta.dirname, "__test-cases");
