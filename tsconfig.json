@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "target": "ESNext",
     "declaration": true,
-    "declarationDir": "./dist/types",
-    "outDir": "./dist",
+    "types": ["node", "bun"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

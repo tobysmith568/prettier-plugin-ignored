@@ -2,7 +2,7 @@
   "name": "prettier-plugin-ignored",
   "version": "0.0.0",
   "description": "A Prettier plugin that adds an 'ignored' language, allowing you to ignore files without listing them in a .prettierignore file.",
-  "packageManager": "pnpm@10.34.7+sha512.ba98abc585539933375b5971f4bc6d6c73a1b4b7edc4a879e7d102fe5423d1e02309d67c60a11f04955093a96e521ad9c3b138cdd654ca5be563f378b3ae48bd",
+  "packageManager": "bun@1.4.3",
   "prettier": "@tobysmith568/prettier-config",
   "type": "module",
   "keywords": [
@@ -31,20 +31,30 @@
   "license": "ISC",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.cts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     }
   },
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "build": "rollup -c",
-    "test": "vitest"
+    "build": "tsdown",
+    "test": "bun test"
   },
+  "trustedDependencies": [
+    "esbuild",
+    "unrs-resolver"
+  ],
   "dependencies": {
     "prettier": "^3.8.1"
   },
@@ -53,15 +63,12 @@
   },
   "devDependencies": {
     "@license-cop/permissive": "^2.2.1",
-    "@rollup/plugin-commonjs": "^29.0.0",
-    "@rollup/plugin-node-resolve": "^16.0.3",
     "@tobysmith568/eslint-config": "^2.7.1",
     "@tobysmith568/prettier-config": "^2.2.1",
+    "@types/bun": "^1.4.3",
+    "@types/node": "^24.19.2",
     "license-cop": "^2.2.1",
-    "rollup": "^4.59.0",
-    "rollup-plugin-delete": "^3.0.2",
-    "rollup-plugin-typescript2": "^0.36.0",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "tsdown": "^0.23.1",
+    "typescript": "^6.0.3"
   }
 }
