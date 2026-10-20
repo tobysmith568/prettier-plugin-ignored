@@ -55,6 +55,9 @@ jobs:
       - name: Run ESLint
         run: bun run eslint . --max-warnings 0
 
+      - name: Typecheck
+        run: bun run tsc --noEmit
+
   build:
     name: Build
 
