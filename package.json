@@ -60,7 +60,7 @@
     "license-cop": "^1.9.0",
     "rollup": "^4.59.0",
     "rollup-plugin-delete": "^3.0.2",
-    "rollup-plugin-typescript2": "^0.36.0",
+    "rollup-plugin-typescript2": "^0.37.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
   }
