@@ -1,16 +1,18 @@
+import { beforeAll, describe, expect, it } from "bun:test";
 import { exec } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
 import util from "node:util";
 import prettier from "prettier";
-import { beforeAll, describe, expect, it } from "vitest";
 
 const execAsync = util.promisify(exec);
+
+const buildTimeoutMs = 15_000;
 
 describe("prettier-plugin-ignored", async () => {
   beforeAll(async () => {
     await execAsync("bun run build");
-  });
+  }, buildTimeoutMs);
 
   const testCaseDir = path.resolve(import.meta.dirname, "__test-cases");
 

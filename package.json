@@ -43,7 +43,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "test": "vitest"
+    "test": "bun test"
   },
   "trustedDependencies": [
     "esbuild",
@@ -61,12 +61,12 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@tobysmith568/eslint-config": "^2.7.1",
     "@tobysmith568/prettier-config": "^2.2.1",
+    "@types/bun": "^1.4.3",
     "@types/node": "^24",
     "license-cop": "^2.2.1",
     "rollup": "^4.59.0",
     "rollup-plugin-delete": "^3.0.2",
     "rollup-plugin-typescript2": "^0.36.0",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "typescript": "^5.9.3"
   }
 }
