@@ -2,7 +2,7 @@
   "name": "prettier-plugin-ignored",
   "version": "0.0.0",
   "description": "A Prettier plugin that adds an 'ignored' language, allowing you to ignore files without listing them in a .prettierignore file.",
-  "packageManager": "bun@1.4.3",
+  "packageManager": "bun@1.4.4",
   "prettier": "@tobysmith568/prettier-config",
   "type": "module",
   "keywords": [
