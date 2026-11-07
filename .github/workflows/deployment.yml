@@ -42,7 +42,7 @@ jobs:
         run: npm version ${{ inputs.version }} --git-tag-version false
 
       - name: Calculate npm tag
-        uses: tobysmith568/npm-publish-latest-tag@v1
+        uses: tobysmith568/npm-publish-latest-tag@v2
         id: npm_tag
         with:
           package-json: ./package.json
